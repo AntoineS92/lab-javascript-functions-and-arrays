@@ -1,19 +1,94 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(a, b) {
+  if (a > b) {
+    return a;
+  } else {
+    return b;
+  }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+
+function findLongestWord(list) {
+  let longest = "";
+  if (list.length === 0) {
+    return null
+  }
+  
+  for (let i = 0; i < list.length; i++) {
+    if (list[i].length > longest.length) {
+      longest = list[i];
+    }
+  }
+  return longest; 
+}
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(array) {
+  let result = 0;
+  if (array.length === 0) {
+    return 0;
+  }
+
+  for (let index = 0; index < array.length; index++) {
+    result = result + array[index];
+  }
+  return result;
+}
+
+function sum(array) {
+  let result = 0;
+  if (array.length === 0) {
+    return 0;
+  }
+
+  for (let i = 0; i < array.length; i++) {
+    let toNumber = new Number(array[i]);
+    console.log(toNumber);
+    console.log(array[i]);
+    result = result + toNumber;
+  }
+  return result;
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(array) {
+  let result = 0;
+  if (array.length === 0) {
+    return null;
+  }
+
+  for (let i = 0; i < array.length; i++) {
+    result = (result + array[i])
+  }
+  result = result / array.length;
+  return result;
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(array) {
+  let result = 0;
+  if (array.length === 0) {
+    return null;
+  }
+
+  for (let i = 0; i < array.length; i++) {
+    result = result + array[i].length;
+  }
+  result = result / array.length;
+  return result;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -30,8 +105,38 @@ const wordsUnique = [
   'bring'
 ];
 
+// si indeof !== index[i] => retirer élément
+
+function uniquifyArray(words) {
+  if (words.length === 0) {
+    return null;
+  }
+
+  let uniqueWords = [];
+
+  for (let i = 0; i < words.length; i++) {
+    if (words.indexOf(words[i]) == i) {
+      uniqueWords.push(words[i]);
+    }
+  }
+  return uniqueWords;
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(list, word) {
+  if (list.length === 0) {
+    return null;
+  }
+
+  for (let i = 0; i < list.length; i++){
+    if (word === list[i]) {
+      return true
+    }
+  }
+  return false
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -48,6 +153,20 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes(list, word) {
+  if (list.length === 0) {
+    return 0;
+  }
+
+  let counter = 0;
+  for (let i = 0; i < list.length; i++) {
+    if (word === list[i]) {
+      counter += 1;
+      console.log(counter)
+    }
+  }
+  return counter;
+}
 // Iteration #8: Bonus
 
 const matrix = [
@@ -72,3 +191,32 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+function greatestProduct(array){
+  let greatest = 0;
+  let x = 0;
+  let y = 0;
+    for (x = 0; x < array.length; x++){
+      for (y = 0; y < array[y].length - 3; y++){
+        result = array[x][y] * array[x][y+1] * array[x][y+2] * array[x][y+3];
+          if (result > greatest) {
+            greatest = result;
+          }
+        console.log("the result is " + result);
+        console.log("the greatest is " + greatest);
+      }
+    }
+  
+    for (y = 0; y < array.length; y++){
+      for (x = 0; x < array[x].length - 3; x++){
+        result = array[x][y] * array[x+1][y] * array[x+2][y] * array[x+3][y];
+          if (result > greatest) {
+            greatest = result;
+          }
+        console.log(result);
+        console.log("this is the greatest : " + greatest);
+      }
+    }
+  return greatest;
+}
